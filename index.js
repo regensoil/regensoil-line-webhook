@@ -11,7 +11,7 @@ const config = {
 const client = new Client(config);
 const app = express();
 
-
+// ใช้ LINE middleware ก่อน express.json()
 app.use(middleware(config));
 app.use(express.json());
 
