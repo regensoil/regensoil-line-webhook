@@ -10,8 +10,9 @@ const config = {
 const client = new Client(config);
 const app = express();
 
-app.use(express.json());
+// ✅ LINE middleware ต้องมาก่อน express.json()
 app.use(middleware(config));
+app.use(express.json());
 
 app.post("/webhook", async (req, res) => {
   const events = req.body.events;
