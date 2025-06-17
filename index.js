@@ -11,7 +11,7 @@ const config = {
 const client = new Client(config);
 const app = express();
 
-// ✅ LINE middleware ต้องมาก่อน express.json()
+
 app.use(middleware(config));
 app.use(express.json());
 
@@ -48,7 +48,7 @@ app.post("/webhook", async (req, res) => {
           console.error("GPT error:", err.response?.data || err.message);
           await client.replyMessage(replyToken, {
             type: "text",
-            text: "ขออภัยค่ะ ตอนนี้ระบบขัดข้องชั่วคราว ไว้เราจะติดต่อกลับไปนะคะ",
+            text: "ขออภัยค่ะ ตอนนี้ระบบของเราขัดข้องชั่วคราว เราจะรีบติดต่อกลับไปนะคะ",
           });
         }
       }
