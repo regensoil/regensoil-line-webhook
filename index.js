@@ -4,8 +4,8 @@ const { middleware, Client } = require("@line/bot-sdk");
 const axios = require("axios");
 
 const config = {
-  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
-  channelSecret: process.env.CHANNEL_SECRET,
+  channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN,
+  channelSecret: process.env.LINE_CHANNEL_SECRET,
 };
 
 const client = new Client(config);
@@ -47,7 +47,7 @@ app.post("/webhook", async (req, res) => {
           console.error("GPT error:", err.response?.data || err.message);
           await client.replyMessage(replyToken, {
             type: "text",
-            text: "ขอโทษครับ ระบบขัดข้องชั่วคราว 😥",
+            text: "ขออภัยค่ะ ตอนนี้ระบบขัดข้องชั่วคราว ไว้เราจะติดต่อกลับไปนะคะ",
           });
         }
       }
