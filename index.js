@@ -1,3 +1,5 @@
+console.log("LINE config:", config);
+
 require("dotenv").config();
 const express = require("express");
 const { middleware, Client } = require("@line/bot-sdk");
